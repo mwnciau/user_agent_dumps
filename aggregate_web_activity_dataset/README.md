@@ -2,7 +2,7 @@
 
 > 600 million web access requests made to multiple servers have been collected between 2019 and 2023. The 4-year automated collection spans over 8000 domains and had iteratively been upgraded with extra data fields up until its closure in March of 2023.
 
-This dataset of user agents has been aggregated into a single JSON file containing the normalised user agent strings and how often they appear.
+This dataset of user agents has been aggregated into a single JSON file containing the normalised user agent strings and how often they appear. Due to the size of the dataset, any user agent that appears 10 or fewer times has been removed.
 
 ## Normalisation
 

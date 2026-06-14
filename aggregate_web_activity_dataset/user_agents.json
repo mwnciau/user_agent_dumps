@@ -1,7 +1,8 @@
 {
-  "description": "User agents from 600 million web requests across 8,000 domains, collected between 2019 and 2023, aggregated into a single JSON file containing the normalised user agent strings and how often they appear.",
+  "description": "User agents from 600 million web requests across 8,000 domains, collected between 2019 and 2023, aggregated into a single JSON file containing the normalised user agent strings and how often they appear. Due to the size of the dataset, any user agent that appears 10 or fewer times has been removed.",
   "source": "https://zenodo.org/records/14497695",
   "license": "CC BY 4.0, https://creativecommons.org/licenses/by/4.0/",
+  "totalCount": 964123,
   "userAgents": [
     {
       "userAgent": "Mozilla/5.0 (Windows; U; Windows NT 5.0; en-US; rv:1.0.0.0) Gecko/20000000 Firefox/2.0.0.0",
