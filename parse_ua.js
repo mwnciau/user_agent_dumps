@@ -21,6 +21,7 @@ function parseUserAgentsFile() {
     throw new Error("Input file format is incorrect. Expected a hash containing a `userAgents` key` containing an array of strings.");
   }
   const userAgents = parsedData.userAgents;
+  let totalCount = 0;
 
   // 2. Map over the array and parse each user agent
   const processedData = userAgents.map((uaData) => {
@@ -35,6 +36,10 @@ function parseUserAgentsFile() {
     // Remove inconsistent Mobile prefix from browser name
     let browser = result.browser.name?.replace(/^Mobile /, '');
 
+    if (uaData.count) {
+        totalCount += uaData.count;
+    }
+
     return {
       ...uaData,
       userAgent: userAgent,
@@ -47,6 +52,9 @@ function parseUserAgentsFile() {
     };
   });
 
+  // Delete the userAgents key so the totalCount appears at the top of the document
+  delete parsedData.userAgents;
+  parsedData.totalCount = totalCount;
   parsedData.userAgents = processedData;
 
   // 3. Save the results back to a new JSON file (formatted with 2-space indentation)
