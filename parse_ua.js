@@ -24,7 +24,10 @@ function parseUserAgentsFile() {
 
   // 2. Map over the array and parse each user agent
   const processedData = userAgents.map((uaData) => {
-    const userAgent = uaData.userAgent;
+    let userAgent = uaData.userAgent;
+
+    // Fix normalised user agent string for Blink browsers
+    userAgent = userAgent.replace(/(webkit)\/537.0/i, "$1/537.36")
 
     const parser = new UAParser(userAgent);
     const result = parser.getResult();
@@ -34,6 +37,7 @@ function parseUserAgentsFile() {
 
     return {
       ...uaData,
+      userAgent: userAgent,
       browser: browser || 'Unknown',
       browserMajorVersion: getMajorVersion(result.browser.version),
       engine: result.engine.name || 'Unknown',

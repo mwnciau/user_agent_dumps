@@ -16,5 +16,5 @@ Requirements:
 To download the latest data, run:
 
 ```bash
-node download_and_agregate.js
+GITHUB_TOKEN=... node download_and_agregate.js
 ```
